@@ -82,10 +82,33 @@ export async function fetchModuleFiles(
   }
 
   // Remote mode - fetch from GitHub
-  const manifestUrl = `${REGISTRY_BASE_URL}/${modulePath}/manifest.json`;
+  const isSkillDirectory = modulePath.startsWith("skills/") && !modulePath.endsWith(".md");
+  const isCommandFile = modulePath.startsWith("commands/") && modulePath.endsWith(".md");
 
   try {
-    // Fetch manifest to know what files to download
+    if (isSkillDirectory) {
+      // Skills are directories with SKILL.md inside
+      const skillUrl = `${REGISTRY_BASE_URL}/${modulePath}/SKILL.md`;
+      const response = await fetch(skillUrl);
+      if (response.ok) {
+        files.set("SKILL.md", await response.text());
+      }
+      return files;
+    }
+
+    if (isCommandFile) {
+      // Commands are single .md files
+      const commandUrl = `${REGISTRY_BASE_URL}/${modulePath}`;
+      const response = await fetch(commandUrl);
+      if (response.ok) {
+        const filename = modulePath.split("/").pop()!;
+        files.set(filename, await response.text());
+      }
+      return files;
+    }
+
+    // Fallback: try manifest.json for other module types
+    const manifestUrl = `${REGISTRY_BASE_URL}/${modulePath}/manifest.json`;
     const manifestResponse = await fetch(manifestUrl);
     if (!manifestResponse.ok) {
       // Single file module, fetch directly
@@ -110,7 +133,7 @@ export async function fetchModuleFiles(
     await Promise.all(fetchPromises);
     return files;
   } catch (error) {
-    logger.debug(`Manifest not found for ${modulePath}, treating as single file`);
+    logger.debug(`Failed to fetch module ${modulePath}: ${error}`);
     return files;
   }
 }
