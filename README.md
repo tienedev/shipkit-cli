@@ -2,7 +2,7 @@
 
 **Configure Claude Code for any project** - Modular skills and commands.
 
-[![npm version](https://img.shields.io/npm/v/@shipkit/cli.svg)](https://www.npmjs.com/package/@shipkit/cli)
+[![npm version](https://img.shields.io/npm/v/shipkit-cli.svg)](https://www.npmjs.com/package/shipkit-cli)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## Why ShipKit?
@@ -28,11 +28,11 @@ Claude Code is powerful, but configuring it optimally for each project is time-c
 
 ```bash
 # Initialize ShipKit in your project
-npx @shipkit/cli init
+npx shipkit-cli init
 
 # Or with specific options
-npx @shipkit/cli init --minimal  # Only recommended modules
-npx @shipkit/cli init --yes      # Skip prompts
+npx shipkit-cli init --minimal  # Only recommended modules
+npx shipkit-cli init --yes      # Skip prompts
 ```
 
 ## CLI Commands

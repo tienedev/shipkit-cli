@@ -1,10 +1,10 @@
 {
-  "name": "@shipkit/cli",
+  "name": "shipkit-cli",
   "version": "0.1.0",
   "description": "Configure Claude Code for any project - Modular skills, commands, and workflows",
   "type": "module",
   "bin": {
-    "shipkit": "./dist/index.js"
+    "shipkit": "dist/index.js"
   },
   "files": [
     "dist"
@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tienedev/shipkit-cli.git"
+    "url": "git+https://github.com/tienedev/shipkit-cli.git"
   },
   "homepage": "https://shipkit.xyz",
   "bugs": {
