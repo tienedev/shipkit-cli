@@ -2,7 +2,7 @@
 
 **Configure Claude Code for any project** - Modular skills and commands.
 
-[![npm version](https://img.shields.io/npm/v/shipkit-cli.svg)](https://www.npmjs.com/package/shipkit-cli)
+[![npm version](https://img.shields.io/npm/v/@tienedev/shipkit.svg)](https://www.npmjs.com/package/@tienedev/shipkit)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## Why ShipKit?
@@ -28,44 +28,44 @@ Claude Code is powerful, but configuring it optimally for each project is time-c
 
 ```bash
 # Initialize ShipKit in your project
-npx shipkit-cli init
+npx @tienedev/shipkit init
 
 # Or with specific options
-npx shipkit-cli init --minimal  # Only recommended modules
-npx shipkit-cli init --yes      # Skip prompts
+npx @tienedev/shipkit init --minimal  # Only recommended modules
+npx @tienedev/shipkit init --yes      # Skip prompts
 ```
 
 ## CLI Commands
 
-### `shipkit init`
+### `init`
 
 Initialize ShipKit with interactive module selection.
 
 ```bash
-shipkit init [options]
+npx @tienedev/shipkit init [options]
 
 Options:
   -y, --yes      Skip confirmation prompts
   -m, --minimal  Install only recommended modules
 ```
 
-### `shipkit add <module>`
+### `add <module>`
 
 Add a module to your existing configuration.
 
 ```bash
-shipkit add nextjs
-shipkit add debugging --force  # Reinstall if exists
+npx @tienedev/shipkit add nextjs
+npx @tienedev/shipkit add debugging --force  # Reinstall if exists
 ```
 
-### `shipkit list`
+### `list`
 
 List available or installed modules.
 
 ```bash
-shipkit list              # Show all available modules
-shipkit list --installed  # Show only installed modules
-shipkit list -c skills    # Filter by category
+npx @tienedev/shipkit list              # Show all available modules
+npx @tienedev/shipkit list --installed  # Show only installed modules
+npx @tienedev/shipkit list -c skills    # Filter by category
 ```
 
 ## Available Modules
@@ -109,7 +109,7 @@ ShipKit follows the Anthropic Agent Skills standard:
 
 ## Project Structure
 
-After running `shipkit init`:
+After running `npx @tienedev/shipkit init`:
 
 ```
 your-project/

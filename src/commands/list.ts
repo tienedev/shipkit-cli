@@ -10,6 +10,9 @@ import {
   getCLIContext,
   logger,
   printBanner,
+  printLegend,
+  printModule,
+  printSection,
   readConfig,
 } from "../utils/index.js";
 
@@ -27,24 +30,24 @@ export async function listCommand(options: ListCommandOptions = {}): Promise<voi
 
     if (!config) {
       logger.warn("ShipKit is not initialized in this directory.");
-      logger.info("Run " + logger.highlight("shipkit init") + " first.");
+      logger.info(`Run ${logger.highlight("npx @tienedev/shipkit init")} first.`);
       return;
     }
 
     printBanner();
-    logger.title("Installed Modules");
-    logger.newline();
+    printSection("Installed Modules");
 
     if (config.modules.length === 0) {
-      logger.dim("No modules installed.");
+      logger.dim("    No modules installed.");
     } else {
       for (const mod of config.modules) {
-        logger.info(`  ${pc.green("●")} ${mod}`);
+        console.log(`    ${pc.green("●")} ${mod}`);
       }
       logger.newline();
-      logger.dim(`Total: ${config.modules.length} modules`);
-      logger.dim(`Installed: ${config.installedAt}`);
+      logger.dim(`    Total: ${config.modules.length} modules`);
+      logger.dim(`    Installed: ${new Date(config.installedAt).toLocaleDateString()}`);
     }
+    logger.newline();
 
     return;
   }
@@ -76,24 +79,24 @@ export async function listCommand(options: ListCommandOptions = {}): Promise<voi
     const modules = filterModulesByCategory(registry, category);
     if (modules.length === 0) continue;
 
-    logger.newline();
-    logger.title(category.charAt(0).toUpperCase() + category.slice(1));
+    const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+    const subtitle = category === "skills"
+      ? "Capabilities and patterns"
+      : "Slash commands for workflows";
+    printSection(categoryTitle, subtitle);
 
     for (const mod of modules) {
-      const installed = installedModules.has(mod.name);
-      const status = installed ? pc.green("●") : pc.dim("○");
-      const recommended = mod.recommended ? pc.yellow(" ★") : "";
-      const name = installed ? pc.bold(mod.name) : mod.name;
-
-      console.log(`  ${status} ${name}${recommended}`);
-      console.log(`    ${pc.dim(mod.description)}`);
+      printModule(mod.name, mod.description, {
+        installed: installedModules.has(mod.name),
+        recommended: mod.recommended,
+      });
     }
   }
 
+  printLegend();
   logger.newline();
-  logger.dim(`${pc.green("●")} installed  ${pc.dim("○")} available  ${pc.yellow("★")} recommended`);
+  logger.info(`Total: ${pc.bold(String(registry.modules.length))} modules available`);
   logger.newline();
-  logger.info(`Total: ${registry.modules.length} modules available`);
 }
 
 /**

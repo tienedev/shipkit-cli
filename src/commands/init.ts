@@ -14,6 +14,9 @@ import {
   logger,
   onCancel,
   printBanner,
+  printNextSteps,
+  printSection,
+  printSuccess,
   promptConfirm,
   promptModules,
   promptOverwrite,
@@ -70,13 +73,10 @@ export async function initCommand(options: InitCommandOptions = {}): Promise<voi
     logger.info("Using minimal configuration (recommended modules only)");
   } else {
     // Interactive mode
-    logger.title("Skills");
-    logger.dim("Capabilities and patterns for Claude Code\n");
+    printSection("Skills", "Capabilities and patterns for Claude Code");
     selectedSkills = await promptModules(skillModules, "Select skills to install");
 
-    logger.newline();
-    logger.title("Commands");
-    logger.dim("Slash commands for common workflows\n");
+    printSection("Commands", "Slash commands for common workflows");
     selectedCommands = await promptModules(commandModules, "Select commands to install");
   }
 
@@ -87,9 +87,9 @@ export async function initCommand(options: InitCommandOptions = {}): Promise<voi
   if (totalSelected === 0) {
     logger.warn("No modules selected. Creating empty .claude structure.");
   } else {
-    logger.info(`Selected ${totalSelected} modules:`);
-    if (selectedSkills.length) logger.dim(`  Skills: ${selectedSkills.join(", ")}`);
-    if (selectedCommands.length) logger.dim(`  Commands: ${selectedCommands.join(", ")}`);
+    logger.info(`Selected ${pc.bold(String(totalSelected))} modules:`);
+    if (selectedSkills.length) logger.dim(`    Skills: ${selectedSkills.join(", ")}`);
+    if (selectedCommands.length) logger.dim(`    Commands: ${selectedCommands.join(", ")}`);
   }
 
   logger.newline();
@@ -154,17 +154,8 @@ export async function initCommand(options: InitCommandOptions = {}): Promise<voi
   generateClaudeMd(ctx.cwd, allSelected, registry);
 
   // Success message
-  logger.newline();
-  logger.success("ShipKit initialized successfully!");
-  logger.newline();
-  logger.dim("Your .claude directory is ready.");
-  logger.dim("Claude Code will automatically use your skills and commands.");
-  logger.newline();
-  logger.info("Next steps:");
-  logger.dim("  1. Open Claude Code in this directory");
-  logger.dim("  2. Try a command like /fix or /review");
-  logger.dim("  3. Run " + pc.cyan("shipkit add <module>") + " to add more modules");
-  logger.newline();
+  printSuccess(installed);
+  printNextSteps();
 }
 
 /**

@@ -8,7 +8,7 @@
 
 ```bash
 # Via CLI
-npx shipkit-cli init
+npx @tienedev/shipkit init
 
 # Via Plugin Marketplace
 /plugin marketplace add tienedev/shipkit-cli
