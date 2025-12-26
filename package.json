@@ -1,6 +1,6 @@
 {
-  "name": "shipkit-cli",
-  "version": "0.1.0",
+  "name": "@tienedev/shipkit",
+  "version": "0.1.1",
   "description": "Configure Claude Code for any project - Modular skills, commands, and workflows",
   "type": "module",
   "bin": {
