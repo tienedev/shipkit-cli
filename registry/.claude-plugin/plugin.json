@@ -1,0 +1,38 @@
+{
+  "name": "shipkit",
+  "version": "0.1.0",
+  "description": "Curated skills, commands, and agents to supercharge Claude Code. Modular, lightweight, production-ready.",
+  "author": "tienedev",
+  "license": "MIT",
+  "homepage": "https://shipkit.xyz",
+  "repository": "https://github.com/tienedev/shipkit-cli",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "productivity",
+    "developer-tools",
+    "agents"
+  ],
+  "skills": [
+    "skills/context-management",
+    "skills/quality-enforcement",
+    "skills/rescue-debug",
+    "skills/workflow-orchestration",
+    "skills/debugging",
+    "skills/code-review",
+    "skills/planning",
+    "skills/research",
+    "skills/git-workflow",
+    "skills/nextjs",
+    "skills/supabase",
+    "skills/tailwind",
+    "skills/python"
+  ],
+  "commands": [
+    "commands/fix.md",
+    "commands/review.md",
+    "commands/plan.md",
+    "commands/scout.md",
+    "commands/bootstrap.md"
+  ]
+}

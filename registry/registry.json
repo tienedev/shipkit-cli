@@ -1,0 +1,149 @@
+{
+  "version": "0.1.0",
+  "modules": [
+    {
+      "name": "context-management",
+      "description": "Maintain project context across conversations for better codebase understanding",
+      "category": "skills",
+      "path": "skills/context-management",
+      "recommended": true,
+      "tags": ["essential", "memory", "context"]
+    },
+    {
+      "name": "quality-enforcement",
+      "description": "Automated code quality checks and best practices enforcement",
+      "category": "skills",
+      "path": "skills/quality-enforcement",
+      "recommended": true,
+      "tags": ["essential", "quality", "linting"]
+    },
+    {
+      "name": "rescue-debug",
+      "description": "Emergency debugging for broken builds, failing tests, and critical errors",
+      "category": "skills",
+      "path": "skills/rescue-debug",
+      "recommended": true,
+      "tags": ["essential", "debugging", "fix"]
+    },
+    {
+      "name": "workflow-orchestration",
+      "description": "Sequential thinking for complex problem-solving with dynamic adjustment",
+      "category": "skills",
+      "path": "skills/workflow-orchestration",
+      "recommended": false,
+      "tags": ["advanced", "planning", "orchestration"]
+    },
+    {
+      "name": "debugging",
+      "description": "Systematic debugging methodology for complex issues",
+      "category": "skills",
+      "path": "skills/debugging",
+      "recommended": true,
+      "tags": ["essential", "debugging"]
+    },
+    {
+      "name": "code-review",
+      "description": "Thorough code review with quality, security, and maintainability focus",
+      "category": "skills",
+      "path": "skills/code-review",
+      "recommended": true,
+      "tags": ["quality", "security", "review"]
+    },
+    {
+      "name": "planning",
+      "description": "Create comprehensive implementation plans for features and architectures",
+      "category": "skills",
+      "path": "skills/planning",
+      "recommended": false,
+      "tags": ["planning", "architecture"]
+    },
+    {
+      "name": "research",
+      "description": "Systematic technical research and information synthesis",
+      "category": "skills",
+      "path": "skills/research",
+      "recommended": false,
+      "tags": ["research", "documentation"]
+    },
+    {
+      "name": "git-workflow",
+      "description": "Professional git workflow with security-first approach",
+      "category": "skills",
+      "path": "skills/git-workflow",
+      "recommended": false,
+      "tags": ["git", "workflow"]
+    },
+    {
+      "name": "nextjs",
+      "description": "Next.js 15+ patterns including App Router and Server Components",
+      "category": "skills",
+      "path": "skills/nextjs",
+      "recommended": false,
+      "tags": ["frontend", "react", "fullstack"]
+    },
+    {
+      "name": "supabase",
+      "description": "Supabase patterns for database, auth, RLS, and real-time",
+      "category": "skills",
+      "path": "skills/supabase",
+      "recommended": false,
+      "tags": ["backend", "database", "auth"]
+    },
+    {
+      "name": "tailwind",
+      "description": "Tailwind CSS patterns, utilities, and component styling",
+      "category": "skills",
+      "path": "skills/tailwind",
+      "recommended": false,
+      "tags": ["frontend", "css", "styling"]
+    },
+    {
+      "name": "python",
+      "description": "Python development with FastAPI, type hints, and async patterns",
+      "category": "skills",
+      "path": "skills/python",
+      "recommended": false,
+      "tags": ["backend", "api", "python"]
+    },
+    {
+      "name": "fix",
+      "description": "Quick fixes for common issues (lint, types, tests, build)",
+      "category": "commands",
+      "path": "commands/fix.md",
+      "recommended": true,
+      "tags": ["essential", "fix"]
+    },
+    {
+      "name": "review",
+      "description": "Code review with quality, security, and maintainability checklist",
+      "category": "commands",
+      "path": "commands/review.md",
+      "recommended": true,
+      "tags": ["quality", "review"]
+    },
+    {
+      "name": "plan",
+      "description": "Create detailed implementation plans",
+      "category": "commands",
+      "path": "commands/plan.md",
+      "recommended": false,
+      "tags": ["planning"]
+    },
+    {
+      "name": "scout",
+      "description": "Fast codebase exploration using parallel agents",
+      "category": "commands",
+      "path": "commands/scout.md",
+      "recommended": false,
+      "tags": ["exploration", "search"]
+    },
+    {
+      "name": "bootstrap",
+      "description": "Full project bootstrap with workflow orchestration",
+      "category": "commands",
+      "path": "commands/bootstrap.md",
+      "recommended": false,
+      "tags": ["advanced", "project-init"]
+    }
+  ]
+}
